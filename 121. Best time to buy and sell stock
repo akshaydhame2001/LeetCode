@@ -1,0 +1,21 @@
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    let i = 0;
+    let j = 1;
+    let profit = 0;
+    while(j < prices.length) {
+        if (prices[i] < prices[j]) {
+            let currProfit = prices[j] - prices[i];
+            profit = Math.max(profit, currProfit)
+        } else {
+            i = j;
+        }
+        j++;
+    }
+
+    return profit;
+    
+};
